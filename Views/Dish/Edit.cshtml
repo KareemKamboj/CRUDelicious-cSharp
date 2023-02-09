@@ -1,0 +1,50 @@
+@model Dish
+
+<div class="text-center">
+    <div class="text-align">
+    <h1 class="display-4">Edit @Model.Name</h1>
+    <a href="/">Home</a> <p> | </p> <a href="/dishes/new">Add a Dish</a>
+    </div>
+</div>
+
+<div class="container w-75 mx-auto">
+    <form 
+    class="shadow p-3 rounded"
+    asp-controller="Dish"
+    asp-action="Update"
+    asp-route-dishId="@Model.DishId"
+    method="POST">
+    
+    <div class="mb-3">
+        <label asp-for="Chef"></label>
+        <span asp-validation-for="Chef" class="text-danger font-weighted-bold"></span>
+        <input class="form-control" asp-for="Chef" value="@Model.Chef"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <span asp-validation-for="Name" class="text-danger font-weighted-bold"></span>
+        <input class="form-control" asp-for="Name" value="@Model.Name"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Calories"></label>
+        <span asp-validation-for="Calories" class="text-danger font-weighted-bold"></span>
+        <input class="form-control" asp-for="Calories" value="@Model.Calories"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Tastiness"></label>
+        <span asp-validation-for="Tastiness" class="text-danger font-weighted-bold"></span>
+        <input class="form-control" asp-for="Tastiness" value="@Model.Tastiness"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <span asp-validation-for="Description" class="text-danger font-weighted-bold"></span>
+        <input class="form-control" asp-for="Description" value="@Model.Description"/>
+    </div>
+
+    <button class="btn btn-success">Edit Dish</button>
+    </form>
+</div>
